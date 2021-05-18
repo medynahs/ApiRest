@@ -1,15 +1,17 @@
 package com.ariane.apirest.ApiRest.resource;
 
-import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
+import com.ariane.apirest.ApiRest.event.RecursoCriadoEvent;
 import com.ariane.apirest.ApiRest.model.Starter;
 import com.ariane.apirest.ApiRest.repository.StarterRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
 @RequestMapping("/starters")
@@ -29,6 +30,9 @@ public class StarterResource {
     @Autowired
     private StarterRepository starterRepository;
 
+    @Autowired
+    private ApplicationEventPublisher publisher;
+
     @GetMapping
     public List<Starter> listar() {
 
@@ -36,16 +40,17 @@ public class StarterResource {
 
     }
 
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Starter> criar(@RequestBody Starter starter, HttpServletResponse response){
+    public ResponseEntity<Starter> criar(@Valid @RequestBody Starter starter, HttpServletResponse response){
 
        Starter starterSalvo = starterRepository.save(starter);
 
-       URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}").buildAndExpand(starterSalvo.getId()).toUri();
-       response.setHeader("Location", uri.toASCIIString());
+       publisher.publishEvent(new RecursoCriadoEvent(this, response, starterSalvo.getId()));
 
-       return ResponseEntity.created(uri).body(starterSalvo);
+
+       return ResponseEntity.status(HttpStatus.CREATED).body(starterSalvo);
 
     }
 

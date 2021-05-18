@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "starters")
@@ -16,21 +17,27 @@ public class Starter {
     private Long id;
 
     @NotBlank(message = "Nome é necessário.")
+    @Size(min = 3, max =20)
     private String nome;
 
     @NotBlank(message = "Email é necessário.")
+    @Size(min = 10, max = 60)
     private String email;
 
     @NotBlank(message = "As 4 letras são necessárias.")
+    @Size(min = 4, max = 4)
     private String letras;
 
     @NotBlank(message = "Telefone é necessário.")
+    @Size(min = 9, max = 20)
     private String telefone;
 
     @NotBlank(message = "Endereço é necessário.")
+    @Size(min = 10, max = 100)
     private String endereco;
 
     @NotBlank(message = "Linguagem é necessário.")
+    @Size(min = 2, max = 100)
     private String linguagem;
 
     
