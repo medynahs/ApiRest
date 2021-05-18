@@ -5,3 +5,4 @@ CREATE TABLE desafios (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO desafios (nomeDoDesafio) values ('Desafio API');
+INSERT INTO desafios (nomeDoDesafio) values ('Desafio MVC');
