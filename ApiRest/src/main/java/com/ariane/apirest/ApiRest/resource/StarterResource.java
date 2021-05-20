@@ -46,7 +46,6 @@ public class StarterResource {
 
     }
 
-
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Starter> criar(@Valid @RequestBody Starter starter, HttpServletResponse response){
@@ -55,12 +54,10 @@ public class StarterResource {
 
        publisher.publishEvent(new RecursoCriadoEvent(this, response, starterSalvo.getId()));
 
-
        return ResponseEntity.status(HttpStatus.CREATED).body(starterSalvo);
 
     }
     
-
     @GetMapping("/{id}")
     public ResponseEntity<Starter> buscarPeloId(@PathVariable Long id) {
         Optional<Starter> starter = starterRepository.findById(id);

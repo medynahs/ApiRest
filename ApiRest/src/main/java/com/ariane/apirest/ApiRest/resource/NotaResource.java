@@ -1,6 +1,5 @@
 package com.ariane.apirest.ApiRest.resource;
 
-
 import java.util.List;
 import java.util.Optional;
 
@@ -46,7 +45,6 @@ public class NotaResource {
         return notaRepository.findAll();
 
     }
-
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)

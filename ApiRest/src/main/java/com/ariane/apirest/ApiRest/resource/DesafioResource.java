@@ -54,8 +54,8 @@ public class DesafioResource {
 
        publisher.publishEvent(new RecursoCriadoEvent(this, response, desafioSalvo.getId()));
 
-
        return ResponseEntity.status(HttpStatus.CREATED).body(desafioSalvo);
+
     }
 
     @GetMapping("/{id}")

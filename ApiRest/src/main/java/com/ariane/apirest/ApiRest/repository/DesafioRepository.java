@@ -8,4 +8,3 @@ public interface DesafioRepository extends JpaRepository<Desafio, Long>  {
     
 }
 
-
