@@ -1,24 +1,19 @@
 package com.ariane.apirest.ApiRest.model;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "desafios")
-public class Desafio {
+@Table(name = "submissoes")
+public class Submissao {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @NotBlank(message = "Nome é necessário.")
-    @Size(min = 3, max =20)
-    private String nomeDoDesafio;
     
     public Long getId() {
 		return id;
@@ -26,15 +21,6 @@ public class Desafio {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-    public String getNomeDoDesafio() {
-        return nomeDoDesafio;
-    }
-
-    public void setNomeDoDesafio(String nomeDoDesafio) {
-        this.nomeDoDesafio = nomeDoDesafio;
-    }
-
 
     @Override
     public int hashCode(){
@@ -53,7 +39,7 @@ public class Desafio {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Desafio other = (Desafio) obj;
+		Submissao other = (Submissao) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

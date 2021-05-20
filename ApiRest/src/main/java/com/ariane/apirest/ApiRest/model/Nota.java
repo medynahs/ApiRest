@@ -5,34 +5,53 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.NotNull;
+//import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "desafios")
-public class Desafio {
+@Table(name = "notas")
+public class Nota {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    //submissao
+
+    @NotNull
+    private int notaQualidadeCodigo;
+
+    @NotNull
+    private int notaQuantidadeEntregada;
+
+    /*
     @NotBlank(message = "Nome é necessário.")
     @Size(min = 3, max =20)
-    private String nomeDoDesafio;
+    */
+
     
     public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-    public String getNomeDoDesafio() {
-        return nomeDoDesafio;
+    public int getNotaQualidadeCodigo(){
+        return notaQualidadeCodigo;
     }
 
-    public void setNomeDoDesafio(String nomeDoDesafio) {
-        this.nomeDoDesafio = nomeDoDesafio;
+    public void setNotaQualidadeCodigo(int notaQualidadeCodigo){
+        this.notaQualidadeCodigo = notaQualidadeCodigo;
+    }
+
+    public int getNotaQuantidadeEntregada(){
+        return notaQuantidadeEntregada;
+    }
+
+    public void setNotaQuantidadeEntregada(int notaQuantidadeEntregada){
+        this.notaQuantidadeEntregada = notaQuantidadeEntregada;
     }
 
 
@@ -53,7 +72,7 @@ public class Desafio {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Desafio other = (Desafio) obj;
+		Nota other = (Nota) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

@@ -1,5 +1,6 @@
 package com.ariane.apirest.ApiRest.resource;
 
+
 import java.util.List;
 import java.util.Optional;
 
@@ -7,9 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import com.ariane.apirest.ApiRest.event.RecursoCriadoEvent;
-import com.ariane.apirest.ApiRest.model.Starter;
-import com.ariane.apirest.ApiRest.repository.StarterRepository;
-import com.ariane.apirest.ApiRest.service.StarterService;
+import com.ariane.apirest.ApiRest.model.Nota;
+import com.ariane.apirest.ApiRest.repository.NotaRepository;
+import com.ariane.apirest.ApiRest.service.NotaService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
@@ -26,58 +27,58 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/starters")
-public class StarterResource {
+@RequestMapping("/notas")
+public class NotaResource {
 
 
     @Autowired
-    private StarterRepository starterRepository;
+    private NotaRepository notaRepository;
     
     @Autowired
     private ApplicationEventPublisher publisher;
 
     @Autowired
-    private StarterService starterService;
+    private NotaService notaService;
 
     @GetMapping
-    public List<Starter> listar() {
+    public List<Nota> listar() {
 
-        return starterRepository.findAll();
+        return notaRepository.findAll();
 
     }
 
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Starter> criar(@Valid @RequestBody Starter starter, HttpServletResponse response){
+    public ResponseEntity<Nota> criar(@Valid @RequestBody Nota nota, HttpServletResponse response){
 
-       Starter starterSalvo = starterRepository.save(starter);
+       Nota notaSalva = notaRepository.save(nota);
 
-       publisher.publishEvent(new RecursoCriadoEvent(this, response, starterSalvo.getId()));
+       publisher.publishEvent(new RecursoCriadoEvent(this, response, notaSalva.getId()));
 
 
-       return ResponseEntity.status(HttpStatus.CREATED).body(starterSalvo);
+       return ResponseEntity.status(HttpStatus.CREATED).body(notaSalva);
 
     }
     
 
     @GetMapping("/{id}")
-    public ResponseEntity<Starter> buscarPeloId(@PathVariable Long id) {
-        Optional<Starter> starter = starterRepository.findById(id);
-		return starter.isPresent() ? ResponseEntity.ok(starter.get()) : ResponseEntity.notFound().build();
+    public ResponseEntity<Nota> buscarPeloId(@PathVariable Long id) {
+        Optional<Nota> nota = notaRepository.findById(id);
+		return nota.isPresent() ? ResponseEntity.ok(nota.get()) : ResponseEntity.notFound().build();
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void remover(@PathVariable Long id){
-        starterRepository.deleteById(id);
+        notaRepository.deleteById(id);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Starter> atualizar(@PathVariable Long id, @Valid @RequestBody Starter starter){
+    public ResponseEntity<Nota> atualizar(@PathVariable Long id, @Valid @RequestBody Nota nota){
 
-        Starter starterSalvo = starterService.atualizar(id, starter);
-        return ResponseEntity.ok(starterSalvo);
+        Nota notaSalva = notaService.atualizar(id, nota);
+        return ResponseEntity.ok(notaSalva);
     }
 
 }

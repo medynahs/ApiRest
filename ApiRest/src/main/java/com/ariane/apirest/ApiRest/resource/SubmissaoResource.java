@@ -7,9 +7,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import com.ariane.apirest.ApiRest.event.RecursoCriadoEvent;
-import com.ariane.apirest.ApiRest.model.Starter;
-import com.ariane.apirest.ApiRest.repository.StarterRepository;
-import com.ariane.apirest.ApiRest.service.StarterService;
+import com.ariane.apirest.ApiRest.model.Submissao;
+import com.ariane.apirest.ApiRest.repository.SubmissaoRepository;
+import com.ariane.apirest.ApiRest.service.SubmissaoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
@@ -26,58 +26,58 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/starters")
-public class StarterResource {
+@RequestMapping("/submissoes")
+public class SubmissaoResource {
 
 
     @Autowired
-    private StarterRepository starterRepository;
+    private SubmissaoRepository submissaoRepository;
     
     @Autowired
     private ApplicationEventPublisher publisher;
 
     @Autowired
-    private StarterService starterService;
+    private SubmissaoService submissaoService;
 
     @GetMapping
-    public List<Starter> listar() {
+    public List<Submissao> listar() {
 
-        return starterRepository.findAll();
+        return submissaoRepository.findAll();
 
     }
 
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Starter> criar(@Valid @RequestBody Starter starter, HttpServletResponse response){
+    public ResponseEntity<Submissao> criar(@Valid @RequestBody Submissao submissao, HttpServletResponse response){
 
-       Starter starterSalvo = starterRepository.save(starter);
+       Submissao submissaoSalva = submissaoRepository.save(submissao);
 
-       publisher.publishEvent(new RecursoCriadoEvent(this, response, starterSalvo.getId()));
+       publisher.publishEvent(new RecursoCriadoEvent(this, response, submissaoSalva.getId()));
 
 
-       return ResponseEntity.status(HttpStatus.CREATED).body(starterSalvo);
+       return ResponseEntity.status(HttpStatus.CREATED).body(submissaoSalva);
 
     }
     
 
     @GetMapping("/{id}")
-    public ResponseEntity<Starter> buscarPeloId(@PathVariable Long id) {
-        Optional<Starter> starter = starterRepository.findById(id);
-		return starter.isPresent() ? ResponseEntity.ok(starter.get()) : ResponseEntity.notFound().build();
+    public ResponseEntity<Submissao> buscarPeloId(@PathVariable Long id) {
+        Optional<Submissao> submissao = submissaoRepository.findById(id);
+		return submissao.isPresent() ? ResponseEntity.ok(submissao.get()) : ResponseEntity.notFound().build();
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void remover(@PathVariable Long id){
-        starterRepository.deleteById(id);
+        submissaoRepository.deleteById(id);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Starter> atualizar(@PathVariable Long id, @Valid @RequestBody Starter starter){
+    public ResponseEntity<Submissao> atualizar(@PathVariable Long id, @Valid @RequestBody Submissao submissao){
 
-        Starter starterSalvo = starterService.atualizar(id, starter);
-        return ResponseEntity.ok(starterSalvo);
+        Submissao submissaoSalva = submissaoService.atualizar(id, submissao);
+        return ResponseEntity.ok(submissaoSalva);
     }
 
 }
