@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 //import javax.validation.constraints.Size;
@@ -16,7 +17,8 @@ public class Nota {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //submissao
+    @ManyToOne
+    private Submissao submissao;
 
     @NotNull
     private int notaQualidadeCodigo;
@@ -37,6 +39,14 @@ public class Nota {
 	public void setId(Long id) {
 		this.id = id;
 	}
+
+    public Submissao getSubmissao(){
+        return submissao;
+    }
+
+    public void setSubmissao(Submissao submissao){
+        this.submissao = submissao;
+    }
 
     public int getNotaQualidadeCodigo(){
         return notaQualidadeCodigo;

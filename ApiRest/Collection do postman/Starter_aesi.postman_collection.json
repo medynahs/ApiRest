@@ -1,0 +1,453 @@
+{
+	"info": {
+		"_postman_id": "906f05b3-2b0c-4201-8609-1f666778a72f",
+		"name": "Starter_aesi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Listar Starters --OK",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/starters",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"starters"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Starter --OK",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/starters/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"starters",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Starter --OK",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": 5,\r\n        \"nome\": \"Aryannniii\",\r\n        \"email\": \"arya@gft.com\",\r\n        \"letras\": \"arya\",\r\n        \"telefone\": \"11 9333-9999\",\r\n        \"endereco\": \"Rua aaaaryaaa\",\r\n        \"linguagem\": \"Dart\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/starters/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"starters",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Novo Starter --OK",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Arya\",\r\n    \"email\": \"arya@gft.com\",\r\n    \"letras\": \"arya\",\r\n    \"telefone\": \"11 9333-9999\",\r\n    \"endereco\": \"Rua aaaaryaaa\",\r\n    \"linguagem\": \"Dart\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/starters",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"starters"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Starter --OK",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/starters/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"starters",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Desafios --OK",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/desafios",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"desafios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Desafio --OK",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/desafios/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"desafios",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Desafio --OK",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nomeDoDesafio\": \"Funcionou\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/desafios/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"desafios",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Novo Desafio --OK",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nomeDoDesafio\": \"testar atualizar\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/desafios",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"desafios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Desafio --OK",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/desafios/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"desafios",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Submissoes --OK",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/submissoes",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"submissoes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Submissao --OK",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/submissoes/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"submissoes",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Submissao --OK",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"nome\": \"TestANDO O PUT\",\r\n        \"starter\": null,\r\n        \"desafio\": null,\r\n        \"endereco\": {\r\n            \"logradouro\": \"Rua Alves\",\r\n            \"numero\": \"1239\",\r\n            \"complemento\": \"Apto 19\",\r\n            \"bairro\": \"Pinheiros\",\r\n            \"cep\": \"99.400-123\",\r\n            \"cidade\": \"SP\",\r\n            \"estado\": \"SP\"\r\n        }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/submissoes/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"submissoes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Nova Submissao --OK",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": 1,\r\n        \"nome\": \"Teste2\",\r\n        \"starter\": {\r\n            \"id\": 3\r\n        },\r\n        \"desafio\": {\r\n            \"id\": 2\r\n        },\r\n        \"endereco\": {\r\n            \"logradouro\": \"Rua Alves\",\r\n            \"numero\": \"1239\",\r\n            \"complemento\": \"Apto 19\",\r\n            \"bairro\": \"Pinheiros\",\r\n            \"cep\": \"99.400-123\",\r\n            \"cidade\": \"SP\",\r\n            \"estado\": \"SP\"\r\n        }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/submissoes",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"submissoes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Submissao --OK",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/submissoes/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"submissoes",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Notas --OK",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/notas",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"notas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Nota --OK",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/notas/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"notas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Nota --OK",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": 4,\r\n        \"submissao\": {\r\n            \"id\": 2,\r\n            \"starter\": {\r\n                \"id\": 3\r\n            },\r\n            \"desafio\": {\r\n                \"id\": 2\r\n            },\r\n            \"endereco\": {\r\n                \"logradouro\": \"Rua Alves\",\r\n                \"numero\": \"1239\",\r\n                \"complemento\": \"Apto 19\",\r\n                \"bairro\": \"Pinheiros\",\r\n                \"cep\": \"99.400-123\",\r\n                \"cidade\": \"SP\",\r\n                \"estado\": \"SP\"\r\n            }\r\n        },\r\n        \"notaQualidadeCodigo\": 2,\r\n        \"notaQuantidadeEntregada\": 3\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/notas/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"notas",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Nova Nota --OK",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"submissao\": {\r\n            \"id\": 1,\r\n            \"nome\": \"Teste2\",\r\n            \"starter\": {\r\n                \"id\": 3\r\n            },\r\n            \"desafio\": {\r\n                \"id\": 2\r\n            },\r\n            \"endereco\": {\r\n                \"logradouro\": \"Rua Alves\",\r\n                \"numero\": \"1239\",\r\n                \"complemento\": \"Apto 19\",\r\n                \"bairro\": \"Pinheiros\",\r\n                \"cep\": \"99.400-123\",\r\n                \"cidade\": \"SP\",\r\n                \"estado\": \"SP\"\r\n            }\r\n        },\r\n        \"notaQualidadeCodigo\": 1,\r\n        \"notaQuantidadeEntregada\": 1\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/notas",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"notas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Nota --OK",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/notas/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"notas",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

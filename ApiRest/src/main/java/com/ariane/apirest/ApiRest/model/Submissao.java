@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,6 +18,12 @@ public class Submissao {
     private Long id;
 
 	private String nome;
+
+	@ManyToOne
+	private Starter starter;
+
+	@ManyToOne
+	private Desafio desafio;
 
 	@Embedded
 	private Endereco endereco;
@@ -35,6 +42,22 @@ public class Submissao {
 		this.nome = nome;
 	}
 
+	public Starter getStarter(){
+		return starter;
+	}
+
+	public void setStarter(Starter starter){
+		this.starter = starter;
+	}
+
+	public Desafio getDesafio(){
+		return desafio;
+	}
+
+	public void setDesafio(Desafio desafio){
+		this.desafio = desafio;
+	}
+
 	public Endereco getEndereco() {
 		return endereco;
 	}
@@ -42,6 +65,7 @@ public class Submissao {
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
+
 
     @Override
     public int hashCode(){
