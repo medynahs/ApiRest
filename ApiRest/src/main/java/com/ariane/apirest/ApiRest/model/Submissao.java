@@ -1,6 +1,7 @@
 package com.ariane.apirest.ApiRest.model;
 
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +17,9 @@ public class Submissao {
     private Long id;
 
 	private String nome;
+
+	@Embedded
+	private Endereco endereco;
     
     public Long getId() {
 		return id;
@@ -29,6 +33,14 @@ public class Submissao {
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
 	}
 
     @Override
