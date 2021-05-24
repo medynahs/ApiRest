@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "submissoes")
@@ -17,14 +19,18 @@ public class Submissao {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+	@NotBlank(message = "Nome é necessário.")
 	private String nome;
 
+	@NotNull(message = "Starter é necessário.")
 	@ManyToOne
 	private Starter starter;
 
+	@NotNull(message = "Desafio é necessário.")
 	@ManyToOne
 	private Desafio desafio;
 
+	@NotNull(message = "Endereço é necessário.")
 	@Embedded
 	private Endereco endereco;
     

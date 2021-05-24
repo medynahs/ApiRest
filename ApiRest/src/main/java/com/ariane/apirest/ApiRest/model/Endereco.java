@@ -1,16 +1,39 @@
 package com.ariane.apirest.ApiRest.model;
 
 import javax.persistence.Embeddable;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
 
 @Embeddable
 public class Endereco {
 
+	@NotBlank(message = "Logradouro é necessário.")
+    @Size(min = 3, max =150)
 	private String logradouro;
+
+	@NotBlank(message = "Número é necessário.")
+    @Size(min = 1)
+	@Positive
 	private String numero;
+
+    @Size(min = 3)
 	private String complemento;
+
+	@NotBlank(message = "Bairro é necessário.")
+    @Size(min = 3)
 	private String bairro;
+
+	@NotBlank(message = "CEP é necessário.")
+    @Size(min = 8)
 	private String cep;
+
+	@NotBlank(message = "Cidade é necessário.")
+    @Size(min = 2)
 	private String cidade;
+
+	@NotBlank(message = "Estado é necessário.")
+    @Size(min = 2)
 	private String estado;
     
 	public String getLogradouro() {

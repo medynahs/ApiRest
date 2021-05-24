@@ -7,7 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-//import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Range;
 
 @Entity
 @Table(name = "notas")
@@ -17,20 +18,17 @@ public class Nota {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull(message = "Submissão é necessário!")
     @ManyToOne
     private Submissao submissao;
 
     @NotNull
+    @Range(min = 1, max = 3, message = "Nota da qualidade do código deve ser entre 1 e 3.")
     private int notaQualidadeCodigo;
 
     @NotNull
+    @Range(min = 1, max = 3, message = "Nota da quantidade deve ser entre 1 e 3.")
     private int notaQuantidadeEntregada;
-
-    /*
-    @NotBlank(message = "Nome é necessário.")
-    @Size(min = 3, max =20)
-    */
-
     
     public Long getId() {
 		return id;

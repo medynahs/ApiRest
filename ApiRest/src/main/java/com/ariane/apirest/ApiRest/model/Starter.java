@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -22,6 +23,7 @@ public class Starter {
 
     @NotBlank(message = "Email é necessário.")
     @Size(min = 10, max = 60)
+    @Email(message = "Formato de Email é necessário.")
     private String email;
 
     @NotBlank(message = "As 4 letras são necessárias.")
